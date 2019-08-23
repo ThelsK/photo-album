@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from "react-redux"
 import AlbumsList from './AlbumsList'
-import { getAlbums } from '../../actions/albums'
+import { getAlbums, createAlbum } from '../../actions/albums'
+import AddAlbumForm from './AddAlbumForm';
 
 
 class AlbumsListContainer extends React.Component {
@@ -13,12 +14,18 @@ class AlbumsListContainer extends React.Component {
 
   render() {
     if (!this.props.albums) return 'Loading...'
-    return <AlbumsList albums={this.props.albums} />
+    return (
+      <div>
+        <AlbumsList albums={this.props.albums} />
+        <AddAlbumForm createAlbum={this.props.createAlbum} />
+      </div>
+    )
   }
 }
 
-const mapStateToProps = state => {
-  return { albums: state.albums }
-}
+const mapStateToProps = state =>
+  ({ albums: state.albums })
 
-export default connect(mapStateToProps, { getAlbums })(AlbumsListContainer)
+const mapDispatchToProps = { getAlbums, createAlbum }
+
+export default connect(mapStateToProps, mapDispatchToProps)(AlbumsListContainer)
