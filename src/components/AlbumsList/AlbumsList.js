@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function AlbumsList(props) {
-  console.log(props.albums)
   return (
     <div>
       <h1>All Albums</h1>
