@@ -1,8 +1,9 @@
-import React from "react";
+import React from "react"
 import { Provider } from "react-redux"
 import store from "./store.js"
-import logo from './logo.svg';
-import "./App.css";
+import logo from './logo.svg'
+import AlbumsListContainer from "./components/AlbumsList"
+import "./App.css"
 
 export default class App extends React.Component {
   render() {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
           <p className="App-intro">
             Get started!
           </p>
+          <AlbumsListContainer />
         </div>
       </Provider>
     )
